@@ -7,7 +7,9 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= $this->request->getSession()->read('Auth.User.role') ?> Menu</li>
-        <li><?= $this->Html->link(__('New Blog'), ['action' => 'add']) ?></li>
+        <li><?php if(!$is_editor){
+            echo $this->Html->link(__('New Blog'), ['action' => 'add']);
+        } ?></li>
     </ul>
 </nav>
 <div class="blog index large-9 medium-8 columns content">
