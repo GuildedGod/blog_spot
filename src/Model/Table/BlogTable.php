@@ -34,7 +34,6 @@ class BlogTable extends Table
 
         $validator
             ->integer('authorid')
-            ->requirePresence('authorid', 'create')
             ->allowEmptyString('authorid', false);
 
         $validator

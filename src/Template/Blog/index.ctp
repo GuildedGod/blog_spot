@@ -6,7 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= $this->request->session()->read('Auth.User.role') ?> Menu</li>
+        <li class="heading"><?= $this->request->getSession()->read('Auth.User.role') ?> Menu</li>
         <li><?= $this->Html->link(__('New Blog'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
@@ -25,11 +25,11 @@
             <tbody>
             <?php foreach ($blog as $blog): ?>
                 <tr>
-                    <td><?= h($blog->TITLE) ?></td>
-                    <td><?= h($blog->DATE) ?></td>
+                    <td><?= h($blog->title) ?></td>
+                    <td><?= h($blog->created) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $blog->BLOGID]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blog->BLOGID]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $blog->blogid]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blog->blogid]) ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

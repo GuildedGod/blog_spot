@@ -15,7 +15,6 @@
     <fieldset>
         <legend><?= __('Add Blog') ?></legend>
         <?php
-            echo $this->Form->control('authorid');
             echo $this->Form->control('title');
             echo $this->Form->control('content');
         ?>
