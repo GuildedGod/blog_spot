@@ -17,8 +17,8 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('TITLE') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('DATE') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
