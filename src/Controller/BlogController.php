@@ -30,6 +30,12 @@ class BlogController extends AppController
 
         $this->set(compact('blog'));
     }
+    public function pleb()
+    {
+        $blog = $this->paginate($this->Blog);
+
+        $this->set(compact('blog'));
+    }
 
     public function view($id = null)
     {
@@ -43,10 +49,13 @@ class BlogController extends AppController
     public function add()
     {
         $blog = $this->Blog->newEntity();
-        if ($this->request->is('post')) {
+        if ($this->request->is('post', 'put')) {
+
+            $blog = $this->Blog->patchEntity($blog, $this->request->getData());
+            $blog->authorid = $this->Auth->user('userid');
+
             $blog = $this->Blog->patchEntity($blog, $this->request->getData());
             if ($this->Blog->save($blog)) {
-                $this->Flash->success(__('The blog has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
@@ -83,5 +92,21 @@ class BlogController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($user)
+    {
+        if ($this->request->getParam('action') === 'add') {
+            return true;
+        }
+
+        if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+            $blogid = (int)$this->request->getParam('pass.0');
+            if ($this->Blogs->isOwnedBy($blogid, $user['userid'])) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
     }
 }
