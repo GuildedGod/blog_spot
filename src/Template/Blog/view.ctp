@@ -5,12 +5,15 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
+    <ul class="side-nav btn">
         <li class="heading"><?= $this->request->getSession()->read('Auth.User.role') ?><?= __(' Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Blog'), ['action' => 'edit', $blog->blogid]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Blog'), ['action' => 'delete', $blog->blogid], ['confirm' => __('Are you sure you want to delete # {0}?', $blog->BLOGID)]) ?> </li>
         <li><?= $this->Html->link(__('List'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Blog'), ['action' => 'add']) ?> </li>
+        <li><?php if($is_editor){
+                echo $this->Html->link(__('Publish'),['action' => 'publish', $blog->blogid],['class' => 'btn btn-outline-primary']);
+            } ?></li>
     </ul>
 </nav>
 <div class="blog view large-9 medium-8 columns content">

@@ -2,7 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
+use Cake\Event\Event;
 /**
  * Blog Controller
  *
@@ -12,11 +13,34 @@ use App\Controller\AppController;
  */
 class BlogController extends AppController
 {
-    public function pleb()
-    {
-        $blog = $this->paginate($this->Blog);
 
-        $this->set(compact('blog'));
+    function beforeFilter(Event $event)
+    {
+        $role = $this->Auth->user('role');
+        if ($role == 'editor') {
+            $this->set('role', $role);
+        }
+
+        if($role == 'editor')
+        {
+            $this->set('is_editor', true);
+        }
+        else
+        {
+            $this->set('is_editor', false);
+        }
+    }
+
+    public function publish($id = null){
+
+        $blogTable = TableRegistry::get('Blog');
+        $query = $blogTable->query();
+        $query->update()
+            ->set(['publish' => 'pub'])
+            ->where(['blogid' => $id])
+            ->execute();
+        $this->Flash->success(__('The blog has been published.'));
+        return $this->redirect(['action' => 'index']);
     }
 
     public function search(){
