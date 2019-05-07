@@ -12,6 +12,13 @@ use App\Controller\AppController;
  */
 class BlogController extends AppController
 {
+    public function pleb()
+    {
+        $blog = $this->paginate($this->Blog);
+
+        $this->set(compact('blog'));
+    }
+
     public function search(){
         $this->request->allowMethod('ajax');
         $keyword = $this->request->getQuery('keyword');

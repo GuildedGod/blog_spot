@@ -48,6 +48,10 @@ class BlogTable extends Table
             ->requirePresence('content', 'create')
             ->allowEmptyString('content', false);
 
+        $validator
+            ->maxLength('publish', 8)
+            ->allowEmptyString('publish', false);
+
         return $validator;
     }
 }

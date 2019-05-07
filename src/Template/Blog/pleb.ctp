@@ -20,9 +20,10 @@
             <?php foreach ($blog as $blog): ?>
                 <tr>
                     <td><?= h($blog->title) ?></td>
-                    <td><?= h($blog->date) ?></td>
+                    <td><?= h($blog->created) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $blog->blogid]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $blog->blogid]) ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
