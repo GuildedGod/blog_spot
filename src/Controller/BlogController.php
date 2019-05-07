@@ -61,9 +61,13 @@ class BlogController extends AppController
 
         $this->set(compact('blog'));
     }
-    public function plebs()
+
+    public function pleb()
     {
-        $blog = $this->paginate($this->Blog);
+        $blog = $this->paginate($this->Blog,  array(
+            'recursive' => 0,
+            'conditions' => array('blog.publish' => 'pub'),
+        ));
 
         $this->set(compact('blog'));
     }

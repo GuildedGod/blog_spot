@@ -15,6 +15,7 @@
 
         <p>Carlton A. Henry</p>
         <p>
+            <?= $this->Html->Link(__('Public Blogs'), ['action' => '../Blog/pleb'],['class' => 'btn btn-large btn-primary']) ?>
             <?= $this->Html->Link(__('Login'), ['action' => '../Users/login'],['class' => 'btn btn-large btn-primary']) ?>
             <?= $this->Html->Link(__('Register'), ['action' => '../Users/register'],['class' => 'btn btn-large btn-primary']) ?>
         </p>
