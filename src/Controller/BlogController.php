@@ -16,6 +16,7 @@ class BlogController extends AppController
 
     function beforeFilter(Event $event)
     {
+        $this->Auth->allow(['pleb', 'view']);
         $role = $this->Auth->user('role');
         if ($role == 'editor') {
             $this->set('role', $role);

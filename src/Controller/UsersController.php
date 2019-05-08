@@ -34,7 +34,7 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
     public function beforeFilter(Event $event){
-        $this->Auth->allow(['register', 'Pages/chome']);
+        $this->Auth->allow(['register']);
     }
 
     public function logout()
