@@ -78,7 +78,8 @@ class BlogController extends AppController
         $blog = $this->Blog->get($id, [
             'contain' => []
         ]);
-
+        $session = $this->request->getSession();
+        $session->write('Comment', $blog); // pass id to current session
         $this->set('blog', $blog);
     }
 
