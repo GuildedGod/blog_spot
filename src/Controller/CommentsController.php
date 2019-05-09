@@ -7,6 +7,10 @@ use Cake\Event\Event;
 class CommentsController extends AppController
 {
 
+    public function beforeFilter(Event $event){
+        $this->Auth->allow(['add', 'view']);
+    }
+
     public function index()
     {
         $id = $this->getRequest()->getSession()->read('Comment.blogid');

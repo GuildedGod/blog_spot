@@ -39,6 +39,7 @@
         </table>
     </div>
 </div>
+<!-- Serach Funtionality using jQuery & ajax -->
 <script>
     $('document').ready(function () {
         $('#search').keyup(function () {

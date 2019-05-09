@@ -44,6 +44,9 @@ class BlogController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    /**
+     * Serach funtion for serach overlay
+     */
     public function search(){
         $this->request->allowMethod('ajax');
         $keyword = $this->request->getQuery('keyword');
