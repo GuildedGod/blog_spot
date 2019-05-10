@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use phpDocumentor\Reflection\Types\This;
 
 class CommentsController extends AppController
 {
@@ -42,8 +43,13 @@ class CommentsController extends AppController
             $comment->blogid = $this->getRequest()->getSession()->read('Comment.blogid');
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
+                $check = $this->Auth->user();
+                if(isset($check)){
+                    return $this->redirect(['action' => 'index']);
+                }else{
+                    return $this->redirect($this->referer());
+                }
 
-                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The comment could not be saved. Please, try again.'));
         }

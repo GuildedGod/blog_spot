@@ -84,6 +84,15 @@ class BlogController extends AppController
         $session = $this->request->getSession();
         $session->write('Comment', $blog); // pass id to current session
         $this->set('blog', $blog);
+
+        $id = $this->getRequest()->getSession()->read('Comment.blogid');
+        $result = $this->loadModel('Comments'); //Load Comments model to fetch comments
+        $comments = $result->find('all', [
+            'limit' => 5,
+            'conditions' => array('comments.blogid' => $id),
+            'order' => 'comments.created DESC'
+        ]);
+        $this->set('cdata', $comments);
     }
 
     public function add()

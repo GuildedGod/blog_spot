@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('Blog Reference #') ?></th>
+                <th scope="col"></th>
                 <th scope="col" class="actions float-right"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -17,6 +18,7 @@
             <?php foreach ($comments as $comment): ?>
             <tr>
                 <td><?= $this->Number->format($comment->blogid) ?></td>
+                <td><?= h($comment->comment) ?></td>
                 <td class="actions float-right">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $comment->commentid]) ?>
                 </td>

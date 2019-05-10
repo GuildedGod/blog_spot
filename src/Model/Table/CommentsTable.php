@@ -21,6 +21,8 @@ class CommentsTable extends Table
         $this->setTable('comments');
         $this->setDisplayField('commentid');
         $this->setPrimaryKey('commentid');
+
+        $this->addBehavior('Timestamp');
     }
 
     /**

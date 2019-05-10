@@ -10,11 +10,11 @@
         <li><?= $this->Html->link(__('Edit Blog'), ['action' => 'edit', $blog->blogid]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Blog'), ['action' => 'delete', $blog->blogid], ['confirm' => __('Are you sure you want to delete # {0}?', $blog->BLOGID)]) ?> </li>
         <li><?= $this->Html->link(__('List'), ['action' => 'index']) ?> </li>
-        <li><?php if(empty($is_editor) || !$is_editor){
+        <li><?php if (empty($is_editor) || !$is_editor) {
                 echo $this->Html->link(__('New Blog'), ['action' => 'add']);
             } ?></li>
-        <li><?php if($is_editor){
-                echo $this->Html->link(__('Publish'),['action' => 'publish', $blog->blogid],['class' => 'btn btn-outline-primary']);
+        <li><?php if ($is_editor) {
+                echo $this->Html->link(__('Publish'), ['action' => 'publish', $blog->blogid], ['class' => 'btn btn-outline-primary']);
             } ?></li>
     </ul>
 </nav>
@@ -34,6 +34,18 @@
     </div>
     <br>
     <div class="row">
-        <?= $this->Html->link(__('Add Comment'), ['controller' => 'Comments', 'action' => 'add'] ) ?>
+        <?= $this->Html->link(__('Add Comment'), ['controller' => 'Comments', 'action' => 'add']) ?>
     </div>
+    <table cellpadding="0" cellspacing="0">
+        <tbody>
+        <?php foreach ($cdata as $comment): ?>
+            <tr>
+                <td><?= h($comment->comment) ?></td>
+                <td class="actions float-right">
+                <td><?= h($comment->created) ?></td>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
