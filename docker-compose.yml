@@ -9,7 +9,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: cake
+      MYSQL_DATABASE: defyne
       MYSQL_USER: cake
       MYSQL_PASSWORD: cake
     networks:
