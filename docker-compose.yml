@@ -8,8 +8,8 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: defyne
+      MYSQL_ROOT_PASSWORD: cake
+      MYSQL_DATABASE: cake
       MYSQL_USER: cake
       MYSQL_PASSWORD: cake
     networks:
