@@ -1,8 +1,16 @@
 FROM php:7.2-apache
 
-RUN apt-get update \
+RUN apt-get update && apt-get install -y \
+                           libfreetype6-dev \
+                           libjpeg62-turbo-dev \
+                           libmcrypt-dev \
+                           libpng-dev \
+                           zlib1g-dev \
+                           libicu-dev \
+                           g++ \
  && apt-get install -y vim git zlib1g-dev mysql-client libzip-dev \
- && docker-php-ext-install zip mysqli pdo_mysql \
+ && docker-php-ext-configure intl \
+ && docker-php-ext-install -j$(nproc) iconv intl pdo zip mysqli pdo_mysql mbstring \
  && pecl install xdebug \
  && docker-php-ext-enable xdebug \
  && echo 'xdebug.remote_enable=on' >> /usr/local/etc/php/conf.d/xdebug.ini \
@@ -34,3 +42,6 @@ COPY src/ /var/www/public/src/
 COPY tmp/ /var/www/public/tmp/
 COPY vendor/ /var/www/public/vendor/
 COPY webroot/ /var/www/public/webroot/
+
+RUN chmod -R 777 /var/www/public/tmp/
+RUN chmod -R 777 /var/www/public/logs/
