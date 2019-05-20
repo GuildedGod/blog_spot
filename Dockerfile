@@ -33,7 +33,6 @@ COPY .htaccess /var/www/public
 COPY composer.json /var/www/public
 COPY composer.lock /var/www/public
 COPY phpunit.xml.dist /var/www/public
-COPY README.md /var/www/public
 COPY bin/ /var/www/public/bin/
 COPY config/ /var/www/public/config/
 COPY logs/ /var/www/public/logs/
