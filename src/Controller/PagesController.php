@@ -24,6 +24,10 @@ use Cake\Event\Event;
 class PagesController extends AppController
 {
 
+    public function beforeFilter(Event $event){
+        $this->Auth->allow(['chome']);
+    }
+
     public function display(...$path)
     {
         $count = count($path);
@@ -56,10 +60,6 @@ class PagesController extends AppController
     public function chome()
     {
 
-    }
-
-    public function beforeFilter(Event $event){
-        $this->Auth->allow(['chome']);
     }
 
 }

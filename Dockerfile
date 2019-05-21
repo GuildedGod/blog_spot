@@ -36,6 +36,7 @@ COPY phpunit.xml.dist /var/www/public
 COPY bin/ /var/www/public/bin/
 COPY config/ /var/www/public/config/
 COPY logs/ /var/www/public/logs/
+COPY mysql/ /var/www/public/mysql/
 COPY plugins/ /var/www/public/plugins/
 COPY src/ /var/www/public/src/
 COPY tmp/ /var/www/public/tmp/
