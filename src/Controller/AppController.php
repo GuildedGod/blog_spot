@@ -55,6 +55,6 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'register', 'Pages/chome', 'public']);
+        $this->Auth->allow(['index', 'register', 'Pages/chome', 'public', 'chome', 'login']);
     }
 }

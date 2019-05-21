@@ -24,7 +24,7 @@ CREATE TABLE `blog` (
   `authorid` int(64) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` longtext NOT NULL,
-  `publish` char(8) NOT NULL,
+  `publish` char(8) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
