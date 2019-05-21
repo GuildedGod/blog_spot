@@ -257,7 +257,7 @@ return [
             //'port' => '8080',
             'username' => 'cake',
             'password' => 'cake',
-            'database' => 'defyne',
+            'database' => 'cake',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
              */
@@ -300,7 +300,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'cake',
             'password' => 'cake',
-            'database' => 'defyne',
+            'database' => 'cake',
             //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
             'cacheMetadata' => true,
