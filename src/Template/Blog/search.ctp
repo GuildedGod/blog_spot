@@ -9,8 +9,8 @@
     <tbody>
     <?php foreach ($blog as $blog): ?>
         <tr>
-            <td><?= h($blog->TITLE) ?></td>
-            <td><?= h($blog->DATE) ?></td>
+            <td><?= h($blog->title) ?></td>
+            <td><?= h($blog->created) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $blog->BLOGID]) ?>
             </td>
