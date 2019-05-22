@@ -37,7 +37,7 @@ INSERT INTO `blog` (`blogid`, `authorid`, `title`, `content`, `publish`, `create
 (6, 1, 'help', 'help\r\n', 'pub', '2019-05-07 17:49:52'),
 (7, 1, 'tru test', 'tru', 'pub', '2019-05-07 19:07:39'),
 (8, 3, 'new test', 'new test', '', '2019-05-08 20:27:25'),
-(9, 3, 'comment test', 'comment test', '', '2019-05-09 20:13:14');
+(9, 3, 'DOCKER RUN TEST', 'DOCKERRUN', '', '2019-05-09 20:13:14');
 
 -- --------------------------------------------------------
 

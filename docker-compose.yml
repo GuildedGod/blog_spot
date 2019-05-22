@@ -3,15 +3,13 @@ version: '3'
 services:
   # Database
   db:
-    image: mysql:latest
+    build:
+      context: ./mysql
+      dockerfile: ./Dockerfile
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: defyne
-      MYSQL_USER: cake
-      MYSQL_PASSWORD: cake
     networks:
       - cakesite
   # phpmyadmin
