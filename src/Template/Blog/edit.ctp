@@ -13,7 +13,7 @@
                 ['confirm' => __('Are you sure you want to delete # {0}?', $blog->blogid)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Blog'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Blog Repository'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="blog form large-9 medium-8 columns content">
