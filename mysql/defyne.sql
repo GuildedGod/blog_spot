@@ -48,7 +48,7 @@ INSERT INTO `blog` (`blogid`, `authorid`, `title`, `content`, `publish`, `create
 CREATE TABLE `comments` (
   `commentid` int(11) NOT NULL,
   `blogid` int(16) NOT NULL,
-  `userid` int(16) NOT NULL,
+  `userid` int(16) DEFAULT NULL,
   `comment` longtext NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

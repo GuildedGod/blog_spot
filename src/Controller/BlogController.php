@@ -70,7 +70,7 @@ class BlogController extends AppController
     {
         $blog = $this->paginate($this->Blog,  array(
             'recursive' => 0,
-            'conditions' => array('blog.publish' => 'pub'),
+            'conditions' => array('publish' => 'pub'),
         ));
 
         $this->set(compact('blog'));
