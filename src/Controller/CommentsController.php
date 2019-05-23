@@ -17,7 +17,7 @@ class CommentsController extends AppController
         $id = $this->getRequest()->getSession()->read('Comment.blogid');
         $comments = $this->paginate($this->Comments, array(
             'recursive' => 0,
-            'conditions' => array('comments.blogid' => $id),
+            'conditions' => array('blogid' => $id),
         ));
 
         $this->set(compact('comments'));

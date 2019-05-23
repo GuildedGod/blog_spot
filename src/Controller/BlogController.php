@@ -89,8 +89,8 @@ class BlogController extends AppController
         $result = $this->loadModel('Comments'); //Load Comments model to fetch comments
         $comments = $result->find('all', [
             'limit' => 5,
-            'conditions' => array('comments.blogid' => $id),
-            'order' => 'comments.created DESC'
+            'conditions' => array('blogid' => $id),
+            'order' => 'created DESC'
         ]);
         $this->set('cdata', $comments);
     }
