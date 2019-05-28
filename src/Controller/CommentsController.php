@@ -41,12 +41,12 @@ class CommentsController extends AppController
         if ($this->request->is('post')) {
             $comment = $this->Comments->patchEntity($comment, $this->request->getData());
             $comment->blogid = $this->getRequest()->getSession()->read('Comment.blogid');
-            $comment->userid = $this->getRequest()->getSession()->read('Comment.userid');
+            $comment->userid = $this->getRequest()->getSession()->read('Comment.authorid');
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
                 $check = $this->Auth->user();
                 if(isset($check)){
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect( ['controller' => 'Blog', 'action' => 'index']);
                 }else{
                     return $this->redirect($this->referer());
                 }

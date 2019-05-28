@@ -44,6 +44,18 @@ class BlogController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    public function requestpublish($id = null){
+
+        $blogTable = TableRegistry::get('Blog');
+        $query = $blogTable->query();
+        $query->update()
+            ->set(['publish' => 'req'])
+            ->where(['blogid' => $id])
+            ->execute();
+        $this->Flash->success(__('Request has been sent.'));
+        return $this->redirect(['action' => 'index']);
+    }
+
     /**
      * Serach funtion for serach overlay
      */
@@ -71,6 +83,16 @@ class BlogController extends AppController
         $blog = $this->paginate($this->Blog,  array(
             'recursive' => 0,
             'conditions' => array('publish' => 'pub'),
+        ));
+
+        $this->set(compact('blog'));
+    }
+
+    public function editorview()//publication request
+    {
+        $blog = $this->paginate($this->Blog,  array(
+            'recursive' => 0,
+            'conditions' => array('publish' => 'req'),
         ));
 
         $this->set(compact('blog'));

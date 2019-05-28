@@ -7,8 +7,6 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Comment'), ['action' => 'edit', $comment->commentid]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Comment'), ['action' => 'delete', $comment->commentid], ['confirm' => __('Are you sure you want to delete # {0}?', $comment->commentid)]) ?> </li>
         <li><?= $this->Html->link(__('Blog Comments'), ['action' => 'index']) ?> </li>
     </ul>
 </nav>
