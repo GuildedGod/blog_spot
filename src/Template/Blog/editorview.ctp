@@ -12,7 +12,7 @@
     </ul>
 </nav>
 <div class="blog index large-9 medium-8 columns content">
-    <legend><?= __('Public Search') ?></legend>
+    <legend><?= __('Public Request Search') ?></legend>
     <?= $this->form->control('search', ['label' => false]);?>
     <div class="table-stuff">
         <table cellpadding="0" cellspacing="0">
